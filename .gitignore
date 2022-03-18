@@ -1,0 +1,32 @@
+*.ipynb
+*.json
+*.hvz
+lib
+src
+*cache*
+
+_build
+/envs
+/data
+/index.html
+  # Allow placing a symlink to the generated html book without bothering git
+/labnotes
+/reports
+/tests/scratch
+
+_merged_env.yaml
+.Rprofile
+
+# Indicators for temporary, wip and backup files
+tmp-*
+tmp_*
+*-tmp
+*-tmp.*
+*_tmp.*
+old-*
+*-old.*
+*.back*
+wip-*
+wip_*
+*-wip*
+*_wip*

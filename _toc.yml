@@ -1,0 +1,112 @@
+format: jb-book
+root: README
+
+parts:
+- caption: Workflow components
+  chapters:
+  - file: sinnfull/data/index
+    sections:
+    - file: sinnfull/data/base
+    - file: sinnfull/data/template
+    - file: sinnfull/data/synthetic
+
+  - file: sinnfull/models/index
+    sections:
+    - file: sinnfull/models/base
+    # - file: sinnfull/models/objectives
+    - file: sinnfull/models/OU/OU
+      sections:
+      - file: sinnfull/models/OU/ou-priors
+      - file: sinnfull/models/OU/ou-objectives
+    - file: sinnfull/models/WC/WC
+      sections:
+      - file: sinnfull/models/WC/wc-priors
+      - file: sinnfull/models/WC/wc-objectives
+    - file: sinnfull/models/GWN/GWN
+      sections:
+      - file: sinnfull/models/GWN/gwn-priors
+      - file: sinnfull/models/GWN/gwn-objectives
+    - file: sinnfull/models/GaussObs/GaussObs
+      sections:
+      - file: sinnfull/models/GaussObs/gaussobs-priors
+      - file: sinnfull/models/GaussObs/gaussobs-objectives
+    - file: sinnfull/models/composite_models/composite_models.py
+    - file: sinnfull/models/tagcolls
+
+  - file: sinnfull/optim/index
+    sections:
+    - file: sinnfull/optim/base
+    - file: sinnfull/optim/recorders
+    - file: sinnfull/optim/convergence_tests
+    - file: sinnfull/optim/optimizers/index
+      sections:
+      - file: sinnfull/optim/optimizers/alternated_sgd
+      # - file: sinnfull/optim/optimizers/alternated_sgd_test_examples
+
+  - file: sinnfull/tasks/index
+    sections:
+    - file: sinnfull/tasks/base
+    - file: sinnfull/tasks/analysis
+
+- caption: Workflows
+  chapters:
+  - file: sinnfull/workflows/index
+    sections:
+    - file: sinnfull/workflows/Generate tasks
+    - file: sinnfull/workflows/workflow_parameters
+    - file: sinnfull/workflows/Optimize_WF_template
+
+- caption: Visualization
+  chapters:
+  - file: sinnfull/viz/index
+    sections:
+    - file: sinnfull/viz/config
+    - file: sinnfull/viz/record_store_viewer
+    - file: sinnfull/viz/dist
+    - file: sinnfull/viz/utils
+    - file: sinnfull/viz/hooks
+  - file: sinnfull/view/index
+    sections:
+    - file: sinnfull/view/Result viewer
+
+- caption: Diagnostic & tuning
+  chapters:
+  - file: sinnfull/diagnose/index
+    sections:
+    - file: sinnfull/diagnose/index-correctness
+      sections:
+      - file: sinnfull/diagnose/One-step-forward cost
+      - file: sinnfull/diagnose/Check stationary stats
+      - file: sinnfull/diagnose/Inspect_gradients
+      - file: sinnfull/diagnose/Inspect_logL
+    - file: sinnfull/diagnose/index-hyperparams
+      sections:
+      - file: sinnfull/diagnose/Fit_stability
+      - file: sinnfull/diagnose/Inspect_hyperparams
+    - file: sinnfull/diagnose/index-fit-dynamics
+      sections:
+      - file: sinnfull/diagnose/Check uniformity of gradients -- example
+    - file: sinnfull/diagnose/index-differing-runs
+      sections:
+      - file: sinnfull/diagnose/Compare_parameters
+      - file: sinnfull/diagnose/compare_tasks
+    - file: sinnfull/diagnose/index-debugging
+      sections:
+      - file: sinnfull/diagnose/Debugging_runtime_warnings
+  - file: sinnfull/tune/index.md
+  - file: sinnfull/diagnostics/__init__
+    sections:
+    - file: sinnfull/diagnostics/one_step_cost
+    - file: sinnfull/diagnostics/utils
+
+- caption: Other utilities
+  chapters:
+  - file: sinnfull/sampling
+  - file: sinnfull/rng
+  - file: sinnfull/utils
+
+# - caption: Algorithmic verifications
+#   chapters:
+#   - file: sinnfull/algorithm_tests/index
+#     sections:
+#     - file: sinnfull/algorithm_tests/consistent_digest

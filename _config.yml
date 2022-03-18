@@ -1,0 +1,83 @@
+#######################################################################################
+# A default configuration that will be loaded for all jupyter books
+# Users are expected to override these values in their own `_config.yml` file.
+# This is also the "master list" of all allowed keys and values.
+
+#######################################################################################
+# Book settings
+title                       : "Sinn-full project template"
+author                      : "Alexandre René"
+copyright                   : "2021"
+logo                        : ""
+exclude_patterns            : [_build, Thumbs.db, "**.DS_Store", "**.ipynb_checkpoints",
+                               ".*", "**.egg-info", "*.mypy_cache", "**sinn.graphcache", "**__pycache__",
+                               "**.smt", conf.py, rename.py, setup.py, "**Untitled.ipynb",
+                               src, lib, data, envs, tests,
+                               run, labnotes, reports]
+    # NB: 'data' only excludes the top-level directory.
+    #     To exclude all subdirs named 'data', would would do "**data"
+    #     (which we don't want, since there is a 'data' subpackage)
+only_build_toc_files        : false
+
+#######################################################################################
+# Execution settings
+execute:
+  execute_notebooks         : "cache"
+  exclude_patterns          : [envs, tests, src,  # A list of patterns to *skip* in execution (e.g. a notebook that takes a really long time)
+                               rename.py, setup.py, conf.py]
+  allow_errors              : true
+  # timeout                   : -1      # Default: 30  (measured in seconds)
+     # If you need to increase the timeout, that may be a sign that your
+     # compute requirements exceed what Read the Docs provides for free.
+     # To publish your project, you may want to consider self-hosting or
+     # using GitHub Actions with GitHub Pages
+
+#######################################################################################
+# Parse and render settings
+parse:
+  myst_enable_extensions:
+    - amsmath
+    - colon_fence
+    - deflist
+    - dollarmath
+    # - html_admonition
+    - html_image
+    # - linkify
+    # - replacements
+    # - smartquotes
+    - substitution
+  myst_substitutions:
+    projectname: sinnfull
+
+#######################################################################################
+# HTML-specific settings
+html:
+  use_repository_button: true
+  use_issues_button: true
+
+#######################################################################################
+# LaTeX-specific settings
+latex:
+  latex_engine              : xelatex  # one of 'pdflatex', 'xelatex' (recommended for unicode), 'luatex', 'platex', 'uplatex'
+  use_jupyterbook_latex     : true # use jupyterbook-latex for pdf builds as default
+
+#######################################################################################
+# Launch button settings
+#launch_buttons:
+#  notebook_interface        : jupyterlab  # The interface interactive links will activate ["classic", "jupyterlab"]
+
+repository:
+  url: https://github.com/alcrene/sinnvoll
+  path_to_book              : ""  # A path to your book's folder, relative to the repository root.
+  branch                    : main  # Which branch of the repository should be used when creating links
+
+#######################################################################################
+# Advanced and power-user settings
+sphinx:
+  extra_extensions          :   # A list of extra extensions to load by Sphinx (added to those already used by JB).
+  local_extensions          :   # A list of local extensions to load by sphinx specified by "name: path" items
+  config                    :   # key-value pairs to directly over-ride the Sphinx configuration
+    nb_custom_formats:
+        .py:
+            - jupytext.reads
+            - fmt: py

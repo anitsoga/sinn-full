@@ -1,0 +1,28 @@
+{
+ # The set of standard units to which all dimensions are converted to
+ 'units':
+   {
+    '[time]': 's'
+   },
+
+'params':
+  {
+    'λθ': 0.0002,
+    'b2': 0.001,
+    'clip': 100.,
+  },
+'latents':
+  {
+    'λη' : 0.001,  # In units of stationary std dev
+    'clip': 100.,  # Maximum increment is approx clip*λη
+  },
+'T'  : Parameter(1, units='s'),
+'Δt' : Parameter(2**-10, units='s', type='float64'),  # ~ 1ms
+'Tθb': Parameter(2**-5, units='s'),
+'Tθr': Parameter(2**-5, units='s'),
+'Nθb': 10,
+'Tηb': Parameter(1, units='s'),
+'Tηr': Parameter(0, units='s'),
+'Nηb': 20,
+
+}
